@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="theme-color" content="#1a1a1a">
+	<title>music();</title>
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="layout">
+
+	<section class="column" id="left">
+		<header class="pad noselect" id="tagline">
+			<div class="only-small"><em class="green" data-site-title>music</em>();</div>
+			<div class="not-small"><em class="blue">function</em> <span class="green">songsFor</span>(<em class="orange">task</em> = <span class="yellow">'devotion'</span>) { <span class="fuschia">return</span> <span class="purple">`A collection of songs for</span> <span class="yellow">${</span>task<span class="yellow">}</span><span class="purple">, to quiet the mind and lift the heart.`</span>; }</div>
+		</header>
+
+		<nav class="pad noselect grey" id="player" aria-label="Player">
+			<div class="viz" aria-hidden="true">
+				<span class="fuschia" id="viz-3"></span>
+				<span class="orange" id="viz-2"></span>
+				<span class="yellow" id="viz-1"></span>
+				<span class="green" id="viz-0"></span>
+			</div>
+			<div class="marquee" id="marquee" aria-live="off"></div>
+			<div>
+				<button data-act="prev">[----]</button>
+				<button data-act="back">[---]</button>
+				<button data-act="toggle">[----]</button>
+				<button data-act="forward">[---]</button>
+				<button data-act="next">[----]</button>
+			</div>
+			<div>
+				<span id="clock">--:--:--</span>
+				<button data-act="quieter">[--]</button>
+				<span id="volume">....</span>
+				<button data-act="louder">[--]</button>
+				<button data-act="random" class="purple hover">[random]</button>
+			</div>
+		</nav>
+
+		<nav class="pad noselect" id="links" aria-label="Options">
+			<div>
+				<button class="blue hover" data-opt="shuffle">[shuffle:off]</button>
+				<button class="blue hover" data-opt="repeat">[repeat:off]</button>
+			</div>
+			<div>
+				<button class="orange hover" data-opt="rescan">[rescan]</button>
+				<button class="purple hover" data-opt="invert">[invert]</button>
+				<button class="purple hover" data-opt="fullscreen">[fullscreen]</button>
+			</div>
+		</nav>
+
+		<div class="pad grey noselect" id="stats"></div>
+	</section>
+
+	<section class="column" id="content" aria-live="polite"></section>
+
+	<aside class="column noselect" id="folders" aria-label="Folders"></aside>
+
+</main>
+<script src="/app.js" type="module"></script>
+</body>
+</html>

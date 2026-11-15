@@ -1,0 +1,20 @@
+services:
+  music-player:
+    build: .
+    image: music-player:latest
+    container_name: music-player
+    restart: unless-stopped
+    ports:
+      - "${PORT:-8080}:8080"
+    volumes:
+      # Left side: the folder on this machine that holds your music.
+      # Set MUSIC_PATH in .env, or replace the left side with a path directly.
+      # It is mounted read-only; the player never changes your files.
+      - "${MUSIC_PATH:?Set MUSIC_PATH to your music folder (see .env.example)}:/music:ro"
+    environment:
+      # Name shown in the browser tab and on phones.
+      SITE_TITLE: "${SITE_TITLE:-bhakti}"
+      # How often to look for added or removed files. 0 turns it off.
+      RESCAN_MINUTES: "${RESCAN_MINUTES:-10}"
+      # Folders and files whose names start with any of these are hidden.
+      IGNORE_PREFIXES: "${IGNORE_PREFIXES:-.,_}"

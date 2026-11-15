@@ -1,0 +1,247 @@
+/* IBM Plex Mono (SIL Open Font License, see fonts/OFL.txt) */
+@font-face {
+	font-family: 'Plex';
+	src: url(/fonts/plex-mono-latin-200-normal.woff2) format('woff2');
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plex';
+	src: url(/fonts/plex-mono-latin-ext-400-normal.woff2) format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Plex';
+	src: url(/fonts/plex-mono-latin-400-normal.woff2) format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plex';
+	src: url(/fonts/plex-mono-latin-ext-400-italic.woff2) format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+	unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+	font-family: 'Plex';
+	src: url(/fonts/plex-mono-latin-400-italic.woff2) format('woff2');
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+/* Palette */
+:root {
+	--c-black: #1a1a1a;
+	--c-white: #e1e1e1;
+	--c-grey: #898989;
+	--c-purple: #b462ff;
+	--c-fuschia: #ff45b4;
+	--c-blue: #18b6ff;
+	--c-green: #1beb9e;
+	--c-orange: #ff9528;
+	--c-yellow: #dddd25;
+	--line: 2.5ch;
+	--font: 'Plex', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+:root.invert {
+	--c-black: #d5d5d5;
+	--c-white: #2a2830;
+	--c-grey: #6f6f6f;
+	--c-purple: #6b1fa3;
+	--c-fuschia: #d6005f;
+	--c-blue: #0667c4;
+	--c-green: #007a4f;
+	--c-orange: #a85600;
+	--c-yellow: #6d6f00;
+}
+
+.white   { color: var(--c-white);   --c-current: var(--c-white); }
+.grey    { color: var(--c-grey);    --c-current: var(--c-grey); }
+.purple  { color: var(--c-purple);  --c-current: var(--c-purple); }
+.fuschia { color: var(--c-fuschia); --c-current: var(--c-fuschia); }
+.blue    { color: var(--c-blue);    --c-current: var(--c-blue); }
+.green   { color: var(--c-green);   --c-current: var(--c-green); }
+.orange  { color: var(--c-orange);  --c-current: var(--c-orange); }
+.yellow  { color: var(--c-yellow);  --c-current: var(--c-yellow); }
+
+/* Base: the whole page is sized in character cells and scales with the window */
+html, body {
+	margin: 0;
+	min-height: 100vh;
+	background: var(--c-black);
+	color: var(--c-white);
+	--c-current: var(--c-white);
+	font-family: var(--font);
+	font-weight: 400;
+	line-height: var(--line);
+	letter-spacing: 0.01em;
+	-webkit-text-size-adjust: 100%;
+}
+body { font-size: 3.97vw; }
+@media (min-width: 768px)  { body { font-size: 2vw; } }
+@media (min-width: 1024px) { body { font-size: 1.11111111vw; overflow: hidden; } }
+
+::selection {
+	color: #000;
+	background: var(--c-grey);
+}
+
+em { font-style: italic; }
+
+a {
+	color: var(--c-current);
+	text-decoration: none;
+}
+
+button {
+	display: inline;
+	font: inherit;
+	letter-spacing: inherit;
+	line-height: inherit;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	text-align: left;
+	-webkit-appearance: none;
+	appearance: none;
+}
+button:disabled { color: var(--c-grey); }
+
+/* The signature hover: text becomes a solid block of its own colour */
+.hover { cursor: pointer; }
+.selected,
+a:focus-visible,
+.hover:focus-visible {
+	color: var(--c-black);
+	background: var(--c-current);
+	box-shadow: 0.4ch 0 0 0 var(--c-current), -0.3ch 0 0 0 var(--c-current), 0.4ch 0.2ch 0 0 var(--c-current), -0.3ch 0.2ch 0 0 var(--c-current);
+	opacity: 0.8;
+	outline: none;
+}
+@media (hover: hover) {
+	a:hover,
+	.hover:hover {
+		color: var(--c-black);
+		background: var(--c-current);
+		box-shadow: 0.4ch 0 0 0 var(--c-current), -0.3ch 0 0 0 var(--c-current), 0.4ch 0.2ch 0 0 var(--c-current), -0.3ch 0.2ch 0 0 var(--c-current);
+		opacity: 0.8;
+	}
+}
+
+.noselect { user-select: none; -webkit-user-select: none; }
+.pad { padding: var(--line); }
+.not-small { display: none; }
+@media (min-width: 768px) {
+	.not-small { display: block; }
+	.only-small { display: none; }
+}
+
+/* Layout: one column on phones, two on tablets, three on desktop */
+.layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas: "left" "folders" "content";
+	padding: 0 var(--line);
+	min-height: 100vh;
+	box-sizing: border-box;
+	align-content: start;
+}
+#left    { grid-area: left; }
+#content { grid-area: content; }
+#folders { grid-area: folders; }
+.column { min-width: 0; padding-bottom: var(--line); }
+
+@media (min-width: 768px) {
+	.layout {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+		grid-template-areas: "left content" "folders content";
+		grid-template-rows: auto 1fr;
+	}
+	.column { padding-top: var(--line); }
+	#folders { padding-top: 0; }
+}
+@media (min-width: 1024px) {
+	.layout {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+		grid-template-areas: "left content folders";
+		grid-template-rows: 100vh;
+	}
+	.column {
+		height: 100vh;
+		box-sizing: border-box;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		scrollbar-width: none;
+		padding-bottom: 5ch;
+	}
+	.column::-webkit-scrollbar { display: none; }
+	#folders { padding-top: var(--line); }
+}
+
+/* Left column */
+#tagline { padding-bottom: 0; padding-right: 1ch; line-break: anywhere; }
+#player  { padding-right: 0; padding-bottom: 0; }
+#links   { padding-right: 0; padding-bottom: 0; }
+#stats   { padding-right: 0; }
+@media (min-width: 768px) {
+	#tagline { min-height: calc(var(--line) * 7); box-sizing: content-box; }
+}
+
+.viz span,
+.marquee {
+	display: block;
+	white-space: pre;
+	overflow: hidden;
+	height: var(--line);
+}
+
+/* Middle column */
+.title {
+	font-weight: 400;
+	font-size: inherit;
+	margin: 0;
+}
+@media (min-width: 1024px) {
+	.title {
+		font-size: 4vw;
+		line-height: 1.11111111em;
+		font-weight: 200;
+		margin-left: -0.25rem;
+		margin-top: -0.5rem;
+		padding-bottom: 0.6em;
+	}
+}
+.meta { margin-bottom: var(--line); }
+.tracks { margin: 0 0 var(--line); }
+.track {
+	display: flex;
+	gap: 1ch;
+	align-items: baseline;
+}
+.track .name { min-width: 0; overflow-wrap: anywhere; }
+.track .length { flex: none; }
+.track [data-fav] { flex: none; white-space: pre; }
+.notice { margin-bottom: var(--line); }
+
+/* Right column */
+#folders .list { padding: var(--line); }
+#folders a { display: inline; }
+#folders .count { font-style: normal; }
+@media (min-width: 768px) and (max-width: 1023px) {
+	#folders .list { padding-top: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+}
